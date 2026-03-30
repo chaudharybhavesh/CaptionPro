@@ -378,6 +378,7 @@
         <div class="footer-links">
             <button onclick="openModal('privacyModal')">Privacy Policy</button>
             <button onclick="openModal('termsModal')">Terms of Service</button>
+            <button onclick="window.location.href='mailto:bdchaudhary90062@gmail.com'">Contact Support</button>
         </div>
         <p class="copyright">© CapNova. Crafted with ❤️ for Creators.</p>
     </footer>
@@ -1066,6 +1067,32 @@
             a.download = 'CapNova_HighQuality.srt';
             document.body.appendChild(a); a.click(); document.body.removeChild(a);
         });
+
+        // --- Adsterra Auto-Refresh Logic (Added at the very bottom) ---
+        setInterval(() => {
+            const adContainer = document.querySelector('.bottom-ad-banner');
+            if(adContainer) {
+                adContainer.innerHTML = ''; 
+                
+                const script1 = document.createElement('script');
+                script1.type = 'text/javascript';
+                script1.text = `atOptions = {
+                    'key' : '557148f64745c1d7193a8835837737da',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };`;
+                
+                const script2 = document.createElement('script');
+                script2.type = 'text/javascript';
+                script2.async = true;
+                script2.src = "https://www.highperformanceformat.com/557148f64745c1d7193a8835837737da/invoke.js";
+                
+                adContainer.appendChild(script1);
+                adContainer.appendChild(script2);
+            }
+        }, 45000); 
     </script>
 </body>
-                </html>
+</html>
